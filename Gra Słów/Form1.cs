@@ -19,16 +19,18 @@ namespace Gra_Słów
         public static Form2 reg = new Form2();
         public static Form1 log = new Form1();
         SqlConnection con = new SqlConnection("Data Source=.,1469;Initial Catalog=Game;Persist Security Info=True;User ID=sa;Password=Rezzon123"); //połącznie do bazy
-        public string set;
+
+        
 
         public Form1()
         {
             InitializeComponent();
         }
+      
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            txtLogin.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace Gra_Słów
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             
             SqlDataAdapter sda = new SqlDataAdapter("Select * from Login where USERNAME='" + txtLogin.Text+ "'and PASSWORD ='" +txtPass.Text+ "'" ,con); // query wykonujące sprawdzenie danych
             DataTable dt = new DataTable();
@@ -64,6 +67,7 @@ namespace Gra_Słów
             {
                 MessageBox.Show("Błędny login lub hasło");
             }
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -94,5 +98,61 @@ namespace Gra_Słów
                 txtPass.PasswordChar = '*';
             }
         }
-    }
+
+        //Funkcja dająca możliwość poruszania Form1
+
+        bool drag = false;
+        Point start_point = new Point(0,0);
+        
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            start_point = new Point(e.X, e.Y);
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - start_point.X, p.Y - start_point.Y);
+            }
+        }//
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.ExitThread(); // Zamyka wszystko
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //Funkcja minimalizująca aplikację do Tray
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(1000);
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
+
+        }
+    }   //
 }

@@ -85,9 +85,9 @@ namespace Gra_Słów
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(160, 573);
+            this.button2.Location = new System.Drawing.Point(128, 548);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 57);
+            this.button2.Size = new System.Drawing.Size(273, 57);
             this.button2.TabIndex = 12;
             this.button2.Text = "Rejestracja";
             this.button2.UseVisualStyleBackColor = false;
@@ -117,6 +117,9 @@ namespace Gra_Słów
             this.label1.Size = new System.Drawing.Size(93, 47);
             this.label1.TabIndex = 13;
             this.label1.Text = "Login";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseMove);
+            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);
             // 
             // label2
             // 
@@ -128,6 +131,9 @@ namespace Gra_Słów
             this.label2.Size = new System.Drawing.Size(94, 47);
             this.label2.TabIndex = 14;
             this.label2.Text = "Hasło";
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
+            this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseMove);
+            this.label2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);
             // 
             // label3
             // 
@@ -139,6 +145,9 @@ namespace Gra_Słów
             this.label3.Size = new System.Drawing.Size(219, 47);
             this.label3.TabIndex = 15;
             this.label3.Text = "Powtórz Hasło";
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
+            this.label3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseMove);
+            this.label3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);
             // 
             // button1
             // 
@@ -179,7 +188,7 @@ namespace Gra_Słów
             this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
             this.checkBox1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.checkBox1.ForeColor = System.Drawing.Color.Gold;
-            this.checkBox1.Location = new System.Drawing.Point(369, 508);
+            this.checkBox1.Location = new System.Drawing.Point(381, 505);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(127, 32);
             this.checkBox1.TabIndex = 20;
@@ -209,9 +218,13 @@ namespace Gra_Słów
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);
             // 
             // Form2
             // 
+            this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -236,6 +249,9 @@ namespace Gra_Słów
             this.Text = "Registration";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Enter += new System.EventHandler(this.button2_Click);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

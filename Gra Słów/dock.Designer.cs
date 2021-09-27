@@ -29,6 +29,7 @@ namespace Gra_Słów
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SideButton1 = new System.Windows.Forms.Button();
             this.SideButton2 = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@ namespace Gra_Słów
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -175,6 +177,9 @@ namespace Gra_Słów
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseUp);
             // 
             // label4
             // 
@@ -187,6 +192,12 @@ namespace Gra_Słów
             this.label4.TabIndex = 22;
             this.label4.Text = "X";
             this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // dock
             // 
@@ -202,6 +213,9 @@ namespace Gra_Słów
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "dock";
             this.Load += new System.EventHandler(this.dock_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseUp);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -222,5 +236,6 @@ namespace Gra_Słów
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

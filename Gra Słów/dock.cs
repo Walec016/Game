@@ -76,5 +76,34 @@ namespace Gra_Słów
         {
             System.Windows.Forms.Application.ExitThread();
         }
-    }
+
+        //Funkcja dająca możliwość poruszania Form1
+
+        bool drag = false;
+        Point start_point = new Point(0, 0);
+
+        private void Menu_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            start_point = new Point(e.X, e.Y);
+        }
+
+        private void Menu_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - start_point.X, p.Y - start_point.Y);
+            }
+        } 
+        private void Menu_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+    } //
 }
