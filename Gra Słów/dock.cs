@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Gra_Słów
 {
@@ -17,7 +18,6 @@ namespace Gra_Słów
         public static Form2 reg = new Form2();
         public static Form1 log = new Form1();
         SqlConnection con = new SqlConnection("Data Source=.,1469;Initial Catalog=Game;Persist Security Info=True;User ID=sa;Password=Rezzon123"); //połącznie do bazy
-
         public dock()
         {
 
@@ -36,12 +36,14 @@ namespace Gra_Słów
         {
             SidePanel.Height = SideButton1.Height;
             SidePanel.Top = SideButton1.Top;
+            
         }
 
         private void SideButton2_Click(object sender, EventArgs e)
         {
             SidePanel.Height = SideButton2.Height;
             SidePanel.Top = SideButton2.Top;
+
         }
 
         private void SideButton3_Click(object sender, EventArgs e)
@@ -64,17 +66,55 @@ namespace Gra_Słów
 
         private void SideButton6_Click(object sender, EventArgs e)
         {
-            SidePanel.Height = SideButton6.Height;
-            SidePanel.Top = SideButton6.Top;
+            SqlDataAdapter up1 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME ='" + log.UName + "'", con);
+            DataTable dt = new DataTable(); 
+            up1.Fill(dt); //zmienia w tabeli Active na 0
+            SidePanel.Height = SideButton1.Height;
+            SidePanel.Top = SideButton1.Top;
             this.Hide();
             log.Show();
             
-            
+           
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.ExitThread();
         }
-    }
+
+        //Funkcja dająca możliwość poruszania Form1
+
+        bool drag = false;
+        Point start_point = new Point(0, 0);
+
+        private void Menu_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            start_point = new Point(e.X, e.Y);
+        }
+
+        private void Menu_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - start_point.X, p.Y - start_point.Y);
+            }
+        } 
+        private void Menu_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+        //
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+    } 
 }
