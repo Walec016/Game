@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCMenu.Designer.cs">
+      <DependentUpon>UCMenu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dock.resx">
       <DependentUpon>dock.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +92,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCMenu.resx">
+      <DependentUpon>UCMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
