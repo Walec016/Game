@@ -19,12 +19,6 @@ namespace Gra_Słów
         public static Form2 reg = new Form2();
         public static Form1 log = new Form1();
         SqlConnection con = new SqlConnection("Data Source=.,1469;Initial Catalog=Game;Persist Security Info=True;User ID=sa;Password=Rezzon123"); //połącznie do bazy
-        public string UName
-        {
-            get { return txtLogin.Text; }
-            set { txtLogin.Text = value; }
-        }
-
 
 
         public Form1()
@@ -65,7 +59,8 @@ namespace Gra_Słów
 
             if (dt.Rows.Count == 1) //sprawdzenie zgodności danych z bazą
             {
-                SqlDataAdapter up1 = new SqlDataAdapter("Update Login set ACTIVE = '1' where USERNAME ='"+log.UName+"'", con) ;
+                SqlDataAdapter up1 = new SqlDataAdapter("Update Login set ACTIVE = '1' where USERNAME ='"+txtLogin.Text+"'", con) ;
+                menu.setUserName(txtLogin.Text);
                 up1.Fill(dt); //zmienia w tabeli Active na 1
                 menu.Show();
                 this.Hide();
@@ -114,7 +109,6 @@ namespace Gra_Słów
 
         bool drag = false;
         Point start_point = new Point(0,0);
-        private object uName;
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -138,7 +132,7 @@ namespace Gra_Słów
 
         private void label5_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter up2 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME = '" + log.UName + "'", con);
+            SqlDataAdapter up2 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME = '" + menu.getUserName() + "'", con);
             DataTable dt2 = new DataTable();
             up2.Fill(dt2); //zmienia w tabeli Active na 0
             Application.ExitThread(); // Zamyka wszystko

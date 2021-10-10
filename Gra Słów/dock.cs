@@ -20,11 +20,23 @@ namespace Gra_Słów
         SqlConnection con = new SqlConnection("Data Source=.,1469;Initial Catalog=Game;Persist Security Info=True;User ID=sa;Password=Rezzon123"); //połącznie do bazy
         public dock()
         {
-
             InitializeComponent();
-            
-
         }
+
+        private string _userName;
+
+
+        public string getUserName()
+        {
+            return this._userName;
+        }
+
+        public void setUserName(string value)
+        {
+            Console.WriteLine("XD" + value);
+            this._userName = value;
+        }
+
 
         private void dock_Load(object sender, EventArgs e)
         {
@@ -66,7 +78,7 @@ namespace Gra_Słów
 
         private void SideButton6_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter up1 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME ='" + log.UName + "'", con);
+            SqlDataAdapter up1 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME ='" + getUserName() + "'", con);
             DataTable dt = new DataTable(); 
             up1.Fill(dt); //zmienia w tabeli Active na 0
             SidePanel.Height = SideButton1.Height;
@@ -79,6 +91,9 @@ namespace Gra_Słów
 
         private void label4_Click(object sender, EventArgs e)
         {
+            SqlDataAdapter up2 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME = '" + getUserName() + "'", con);
+            DataTable dt2 = new DataTable();
+            up2.Fill(dt2); //zmienia w tabeli Active na 0
             System.Windows.Forms.Application.ExitThread();
         }
 
