@@ -30,6 +30,7 @@ namespace Gra_Słów
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dock));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SidePanel = new System.Windows.Forms.Panel();
@@ -67,7 +68,7 @@ namespace Gra_Słów
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Gra_Słów.Properties.Resources.download;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(253, 130);
@@ -172,7 +173,7 @@ namespace Gra_Słów
             this.SideButton1.Name = "SideButton1";
             this.SideButton1.Size = new System.Drawing.Size(253, 76);
             this.SideButton1.TabIndex = 0;
-            this.SideButton1.Text = "Menu";
+            this.SideButton1.Text = "Przeglądy";
             this.SideButton1.UseVisualStyleBackColor = false;
             this.SideButton1.Click += new System.EventHandler(this.SideButton1_Click);
             // 
