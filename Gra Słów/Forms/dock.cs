@@ -17,38 +17,72 @@ namespace Gra_Słów
         public static dock menu = new dock();
         public static Form2 reg = new Form2();
         public static Form1 log = new Form1();
+        public static UCMenu ucmenu = new UCMenu();
         SqlConnection con = new SqlConnection("Data Source=.,1469;Initial Catalog=Game;Persist Security Info=True;User ID=sa;Password=Rezzon123"); //połącznie do bazy
         public dock()
         {
             InitializeComponent();
         }
 
-        private string _userName;
+        private string _User;
 
-
-        public string getUserName()
+        public string getUser()
         {
-            return this._userName;
+            return _User;
         }
 
-        public void setUserName(string value)
+        public void setUser(string value)
         {
-            Console.WriteLine("XD" + value);
-            this._userName = value;
+            this._User = value;
         }
 
+      
+      
+
+        private void addUserControl(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            Container.Controls.Clear();
+            Container.Controls.Add(userControl);
+            userControl.BringToFront();
+        }
 
         private void dock_Load(object sender, EventArgs e)
         {
             SidePanel.Height = SideButton1.Height;
             SidePanel.Top = SideButton1.Top;
+            UCMenu uc1 = new UCMenu();
+            addUserControl(uc1);
+
+            con.Open();
+            SqlDataAdapter visible = new SqlDataAdapter("Select VISIBLENAME from Login Where USERNAME='" + getUser() + "'", con);//Query sprawdzające czy użytkownik istnieje
+            DataTable dt = new DataTable();
+            visible.Fill(dt);
+            string visible2;
+            SqlCommand com;
+            visible2 = "Select VISIBLENAME from Login Where USERNAME='" + getUser() + "'";
+            com = new SqlCommand(visible2, con);
+            SqlDataReader reader = com.ExecuteReader();
+
+            if (dt.Rows[0].IsNull(0))
+            {
+                labelHello.Text = ("Witaj " + getUser() + "!");
+            }
+            else
+            {
+                reader.Read();
+                labelHello.Text = "Witaj " + reader.GetValue(0).ToString() + "!";
+            }
+            con.Close();
+
+
         }
 
         private void SideButton1_Click(object sender, EventArgs e)
         {
             SidePanel.Height = SideButton1.Height;
             SidePanel.Top = SideButton1.Top;
-            
+
         }
 
         private void SideButton2_Click(object sender, EventArgs e)
@@ -78,20 +112,20 @@ namespace Gra_Słów
 
         private void SideButton6_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter up1 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME ='" + getUserName() + "'", con);
-            DataTable dt = new DataTable(); 
+            SqlDataAdapter up1 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME ='" + getUser() + "'", con);
+            DataTable dt = new DataTable();
             up1.Fill(dt); //zmienia w tabeli Active na 0
             SidePanel.Height = SideButton1.Height;
             SidePanel.Top = SideButton1.Top;
             this.Hide();
             log.Show();
-            
-           
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter up2 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME = '" + getUserName() + "'", con);
+            SqlDataAdapter up2 = new SqlDataAdapter("Update Login set ACTIVE = '0' where USERNAME = '" + getUser() + "'", con);
             DataTable dt2 = new DataTable();
             up2.Fill(dt2); //zmienia w tabeli Active na 0
             System.Windows.Forms.Application.ExitThread();
@@ -115,7 +149,7 @@ namespace Gra_Słów
                 Point p = PointToScreen(e.Location);
                 this.Location = new Point(p.X - start_point.X, p.Y - start_point.Y);
             }
-        } 
+        }
         private void Menu_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
@@ -129,7 +163,17 @@ namespace Gra_Słów
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
-    } 
+
+        private void labelHello_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
