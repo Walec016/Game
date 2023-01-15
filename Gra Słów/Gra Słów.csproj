@@ -47,39 +47,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dock.cs">
+    <Compile Include="Forms\dock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dock.Designer.cs">
+    <Compile Include="Forms\dock.Designer.cs">
       <DependentUpon>dock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Forms\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Forms\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCMenu.cs">
+    <Compile Include="UserControls\UCMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCMenu.Designer.cs">
+    <Compile Include="UserControls\UCMenu.Designer.cs">
       <DependentUpon>UCMenu.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="dock.resx">
+    <EmbeddedResource Include="Forms\dock.resx">
       <DependentUpon>dock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Forms\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -92,7 +92,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UCMenu.resx">
+    <EmbeddedResource Include="UserControls\UCMenu.resx">
       <DependentUpon>UCMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

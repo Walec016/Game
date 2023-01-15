@@ -16,6 +16,7 @@ namespace Gra_Słów
         public static Form2 reg = new Form2();
         public static Form1 log = new Form1();
         SqlConnection con = new SqlConnection("Data Source=.,1469;Initial Catalog=Game;Persist Security Info=True;User ID=sa;Password=Rezzon123"); //połącznie do bazy
+     
         public Form2()
         {
             InitializeComponent();
