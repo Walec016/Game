@@ -94,13 +94,13 @@ namespace Gra_Słów
             this.SideButton5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SideButton5.FlatAppearance.BorderSize = 0;
             this.SideButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SideButton5.Font = new System.Drawing.Font("Segoe Print", 10F, System.Drawing.FontStyle.Bold);
+            this.SideButton5.Font = new System.Drawing.Font("Segoe Print", 15F, System.Drawing.FontStyle.Bold);
             this.SideButton5.ForeColor = System.Drawing.Color.Red;
             this.SideButton5.Location = new System.Drawing.Point(0, 467);
             this.SideButton5.Name = "SideButton5";
             this.SideButton5.Size = new System.Drawing.Size(253, 76);
             this.SideButton5.TabIndex = 1;
-            this.SideButton5.Text = "Aktywni Użytkownicy";
+            this.SideButton5.Text = "Hardware";
             this.SideButton5.UseVisualStyleBackColor = false;
             this.SideButton5.Click += new System.EventHandler(this.SideButton5_Click);
             // 
@@ -115,7 +115,7 @@ namespace Gra_Słów
             this.SideButton4.Name = "SideButton4";
             this.SideButton4.Size = new System.Drawing.Size(253, 76);
             this.SideButton4.TabIndex = 3;
-            this.SideButton4.Text = "Zalicz Koledze";
+            this.SideButton4.Text = "Odczyty";
             this.SideButton4.UseVisualStyleBackColor = false;
             this.SideButton4.Click += new System.EventHandler(this.SideButton4_Click);
             // 
@@ -130,7 +130,7 @@ namespace Gra_Słów
             this.SideButton3.Name = "SideButton3";
             this.SideButton3.Size = new System.Drawing.Size(253, 76);
             this.SideButton3.TabIndex = 2;
-            this.SideButton3.Text = "Losuj Słowo";
+            this.SideButton3.Text = "Fiskalizacje";
             this.SideButton3.UseVisualStyleBackColor = false;
             this.SideButton3.Click += new System.EventHandler(this.SideButton3_Click);
             // 
@@ -145,7 +145,7 @@ namespace Gra_Słów
             this.SideButton2.Name = "SideButton2";
             this.SideButton2.Size = new System.Drawing.Size(253, 76);
             this.SideButton2.TabIndex = 1;
-            this.SideButton2.Text = "Ranking";
+            this.SideButton2.Text = "Drukarki";
             this.SideButton2.UseVisualStyleBackColor = false;
             this.SideButton2.Click += new System.EventHandler(this.SideButton2_Click);
             // 

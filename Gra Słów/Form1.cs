@@ -18,7 +18,7 @@ namespace Gra_Słów
         public static dock menu = new dock();
         public static Form2 reg = new Form2();
         public static Form1 log = new Form1();
-        SqlConnection con = new SqlConnection("Data Source=.,1469;Initial Catalog=Game;Persist Security Info=True;User ID=sa;Password=Rezzon123"); //połącznie do bazy
+        SqlConnection con = new SqlConnection("Data Source=.,2137;Initial Catalog=POSNET;Persist Security Info=True;User ID=sa;Password=S*#rrQl*mA"); //połącznie do bazy
 
 
         public Form1()
